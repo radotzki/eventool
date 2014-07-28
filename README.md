@@ -10,4 +10,6 @@ During the event cashiers search tickets to attending clients, as well add a cli
 
 If you are a producer and you want to make your life easier and earn more many, join us!
 
+<hr>
+
 Read more on [Eventool Wiki] (https://github.com/radotzki/eventool/wiki)

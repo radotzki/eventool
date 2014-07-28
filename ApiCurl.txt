@@ -11,7 +11,7 @@ curl --request POST -u email@as.com:12345678 -d "name=Tedst" http://localhost:30
 # Update production
 curl --request PUT -u email@as.com:12345678 -d "name=TestUpdate" http://localhost:3000/api/v1/productions/3
 
-# Destroy production
+# Destroy production 
 curl --request DELETE -u email@as.com:12345678 http://localhost:3000/api/v1/productions/12
 
 

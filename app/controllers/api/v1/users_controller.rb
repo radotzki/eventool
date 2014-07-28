@@ -54,7 +54,7 @@ class API::V1::UsersController < ApplicationController
    private
 
     def user_params
-      params.permit(:production_id, :first_name, :last_name, :email, :password ,:phone_number, :role)
+      params.permit(:production_id, :first_name, :last_name, :email, :password ,:phone_number)
     end
 
 end

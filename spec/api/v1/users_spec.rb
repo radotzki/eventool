@@ -39,8 +39,7 @@ describe "User API" do
   			first_name: "Test",
   			last_name: "User",
   			email: "test@user.com",
-  			password: "12345678",
-  			role: "producer"
+  			password: "12345678"
   		}
 	    post '/api/v1/users', params
 
@@ -50,7 +49,7 @@ describe "User API" do
 	    expect(User.last.last_name).to eq("User")
 	    expect(User.last.production_id).to eq(1)
 	    expect(User.last.phone_number).to eq(nil)
-	    expect(User.last.role).to eq("producer")
+	    expect(User.last.role).to eq("cashier")
 	    expect(User.last.email).to eq("test@user.com")
   	end
 
@@ -59,7 +58,6 @@ describe "User API" do
   			first_name: "Test1",
   			last_name: "User1",
   			email: "test@user1.com",
-  			role: "promoter",
   			phone_number: "0541234567"
   		}
 	    api_put 'users/1', 'producer', 1, params
@@ -70,7 +68,6 @@ describe "User API" do
 	    expect(User.find(1).last_name).to eq("User1")
 	    expect(User.find(1).production_id).to eq(1)
 	    expect(User.find(1).phone_number).to eq("0541234567")
-	    expect(User.find(1).role).to eq("promoter")
 	    expect(User.find(1).email).to eq("test@user1.com")
   	end
 

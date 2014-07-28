@@ -9,3 +9,5 @@ Follow a client, watch his events activity, see his friends, read some comments 
 During the event cashiers search tickets to attending clients, as well add a client to the repository if he does not exist.
 
 If you are a producer and you want to make your life easier and earn more many, join us!
+
+Read more on [Eventool Wiki] (https://github.com/radotzki/eventool/wiki)

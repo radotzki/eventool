@@ -1,0 +1,49 @@
+#### PRODUCTION
+# Show productions
+curl http://localhost:3000/api/v1/productions -u email@as.com:12345678
+
+# Index a production
+curl http://localhost:3000/api/v1/productions/3 -u email@as.com:12345678
+
+# Create production
+curl --request POST -u email@as.com:12345678 -d "name=Tedst" http://localhost:3000/api/v1/productions
+
+# Update production
+curl --request PUT -u email@as.com:12345678 -d "name=TestUpdate" http://localhost:3000/api/v1/productions/3
+
+# Destroy production
+curl --request DELETE -u email@as.com:12345678 http://localhost:3000/api/v1/productions/12
+
+
+
+#### USER
+# Show users under specific production
+curl http://localhost:3000/api/v1/users -u email@as.com:12345678
+
+# Index a user under specific production
+curl http://localhost:3000/api/v1/users/50 -u email@as.com:12345678
+
+# Create user
+curl --request POST -d "first_name=Tesast" -d "last_name=Tesasst" -d "password=12345678" -d "email=ddsdd@fd.com" -d "production_id=2" http://localhost:3000/api/v1/users 
+
+# Update user
+curl --request PUT -u email@as.com:12345678 -d "first_name=Nimrod1" http://localhost:3000/api/v1/users/50
+
+# Destroy user
+curl --request DELETE -u email@as.com:12345678 http://localhost:3000/api/v1/users/50
+
+#### CLIENT
+# Show clients under specific production
+curl http://localhost:3000/api/v1/clients -u email@as.com:12345678
+
+# Index a client under specific production
+curl http://localhost:3000/api/v1/clients/4 -u email@as.com:12345678
+
+# Create client
+curl --request POST -u email@as.com:12345678 -d "first_name=Test" -d "last_name=Test" -d "gender=male" -d "birthdate=2007-01-18" http://localhost:3000/api/v1/clients
+
+# Update client
+curl --request PUT -u email@as.com:12345678 -d "first_name=Nimrod" http://localhost:3000/api/v1/clients/6
+
+# Destroy client
+curl --request DELETE -u email@as.com:12345678 http://localhost:3000/api/v1/clients/6

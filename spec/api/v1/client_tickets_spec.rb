@@ -85,7 +85,7 @@ describe "Ticket API" do
   	end
 
   	it 'client check in' do
-	    api_put 'clients/2/tickets/7/checkin', 'cashier', 1, "arrived = true"
+	    api_put 'clients/2/tickets/7/checkin', 'cashier', 1
 
 	    expect(response).to have_http_status(200)
 	    

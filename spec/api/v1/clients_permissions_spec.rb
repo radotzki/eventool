@@ -55,7 +55,7 @@ describe "Client Permissions" do
 	    expect(response).to have_http_status(201)
 
 	    api_post 'clients', 'cashier', 1, params
-	    expect(response).to have_http_status(403)
+	    expect(response).to have_http_status(201)
   	end
 
   	it 'update a client' do

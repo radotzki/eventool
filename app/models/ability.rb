@@ -68,7 +68,7 @@ class Ability
         can [ :update ], User, :id => user.id
 
         # Client
-        can [ :read ], Client, :production_id => user.production_id
+        can [ :read, :create ], Client, :production_id => user.production_id
         can [ :search ], Client
 
         # Event

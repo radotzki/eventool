@@ -29,7 +29,7 @@ describe "ClientFriendship Permissions" do
 	    api_post 'clients/4/friends', 'promoter', 2, "client_two_id=6"
 	    expect(response).to have_http_status(201)	   
 
-	    api_post 'clients', 'cashier', 1, "client_two_id=3"
+	    api_post 'clients/2/friends', 'cashier', 1, "client_two_id=3"
 	    expect(response).to have_http_status(403)
   	end
 

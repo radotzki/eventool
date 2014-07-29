@@ -10,7 +10,7 @@ class Ability
         can [ :update, :destroy  ], Production, :id => user.production_id
 
         # User
-        can [ :read, :destroy, :update, :tickets ], User, :production_id => user.production_id
+        can [ :read, :destroy, :update, :tickets, :unlock ], User, :production_id => user.production_id
 
         # Client
         can [ :read, :create, :update, :destroy ], Client, :production_id => user.production_id
@@ -37,7 +37,7 @@ class Ability
 
         # User
         can [ :read ], User, :production_id => user.production_id
-        can [ :update ], User, :id => user.id        
+        can [ :update, :tickets ], User, :id => user.id        
 
         # Client
         can [ :read, :create, :update, :destroy ], Client, :production_id => user.production_id

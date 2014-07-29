@@ -77,7 +77,7 @@ describe "User Permissions" do
 	    expect(response).to have_http_status(403)   
 
 	    api_get 'users/2/tickets', 'promoter', 1
-	    expect(response).to have_http_status(403)
+	    expect(response).to have_http_status(200)
 		api_get 'users/1/tickets', 'promoter', 2
 	    expect(response).to have_http_status(403)   
 
@@ -85,5 +85,17 @@ describe "User Permissions" do
 	    expect(response).to have_http_status(403)
 	    api_get 'users/1/tickets', 'cashier', 2
 	    expect(response).to have_http_status(403)
-  	end  	
+  	end  
+
+  	it 'unlock a user' do
+  		api_put 'users/7/unlock', 'cashier', 1  		
+		expect(User.find(7).lock).to eq(true)
+
+		api_put 'users/7/unlock', 'promoter', 1  		
+		expect(User.find(7).lock).to eq(true)
+
+		api_put 'users/7/unlock', 'producer', 1  		
+		expect(User.find(7).lock).to eq(false)
+
+  	end	
 end

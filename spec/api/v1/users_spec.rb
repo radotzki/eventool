@@ -87,4 +87,12 @@ describe "User API" do
 	    json = JSON.parse(response.body)
 	    expect(json["users"].length).to eq(2)  		
   	end
+
+  	it 'unlock a user' do
+		api_put 'users/7/unlock', 'producer', 1  		
+		expect(response).to have_http_status(200)
+
+		expect(User.find(7).lock).to eq(false)
+
+  	end
 end

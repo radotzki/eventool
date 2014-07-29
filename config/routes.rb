@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
       resources :users, only: [:index, :show, :create, :update, :destroy] do
         get 'tickets', on: :member
+        put 'unlock', on: :member
 
       end
 

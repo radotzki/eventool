@@ -96,6 +96,16 @@ describe "User Permissions" do
 
 		api_put 'users/7/unlock', 'producer', 1  		
 		expect(User.find(7).lock).to eq(false)
-
   	end	
+
+  	it 'change user role' do
+  		api_put 'users/3/change_role', 'cashier', 1, 'role=promoter'
+		expect(User.find(3).role).to eq("cashier")  		
+		
+		api_put 'users/3/change_role', 'promoter', 1, 'role=promoter'
+		expect(User.find(3).role).to eq("cashier")  		
+
+		api_put 'users/3/change_role', 'producer', 1, 'role=promoter'
+		expect(User.find(3).role).to eq("promoter")  		
+  	end  	
 end

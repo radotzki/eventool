@@ -95,4 +95,11 @@ describe "User API" do
 		expect(User.find(7).lock).to eq(false)
 
   	end
+
+  	it 'change user role' do
+		api_put 'users/3/change_role', 'producer', 1, 'role=promoter'
+		expect(response).to have_http_status(200)
+
+		expect(User.find(3).role).to eq("promoter")  		
+  	end
 end

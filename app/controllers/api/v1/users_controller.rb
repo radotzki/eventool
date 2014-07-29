@@ -65,6 +65,20 @@ class API::V1::UsersController < ApplicationController
     end
   end
 
+  def change_role
+    @user = User.find_by_id(params[:id])
+    if !@user
+      render json: {message: "User not found."}, status: :not_found
+    else
+      @user.role = params[:role]
+      if @user.save
+        render json: {message: "User updated."}, status: :ok
+      else
+        render json: {message: "User not updated.", error: @user.errors}, status: :no_content
+      end      
+    end
+  end
+
    private
 
     def user_params

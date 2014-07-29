@@ -1,7 +1,7 @@
 class API::V1::ProductionsController < ApplicationController
   
-  before_action :restrict_access
-  load_and_authorize_resource 
+  before_action :restrict_access, except: :create
+  load_and_authorize_resource except: [:create]
 
   def index
     @productions = Production.all

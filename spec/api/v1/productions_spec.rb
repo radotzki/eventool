@@ -30,8 +30,7 @@ describe "Production API" do
   	end
 
   	it 'create a new production' do
-        params = {name: "Test Production"}
-	    api_post 'productions', 'producer', 1, params
+	    post 'api/v1/productions', "name=Test Production"
 
 	    expect(response).to have_http_status(201)
 	    

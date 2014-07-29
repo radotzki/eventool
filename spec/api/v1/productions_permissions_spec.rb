@@ -25,17 +25,6 @@ describe "Production Permissions" do
 	    expect(response).to have_http_status(200)
   	end
 
-  	it 'create a new production' do
-	    api_post 'productions', 'producer', 1, "name=Test Production"
-	    expect(response).to have_http_status(201)
-	    
-	    api_post 'productions', 'promoter', 1, "name=Test Production"
-	    expect(response).to have_http_status(403)
-
-	    api_post 'productions', 'cashier', 1, "name=Test Production"
-	    expect(response).to have_http_status(403)
-  	end
-
   	it 'update a production' do
 	    api_put 'productions/1', 'producer', 1, "name=Test Production"
 	    expect(response).to have_http_status(200)

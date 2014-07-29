@@ -45,4 +45,5 @@ gem 'cancancan', '~> 1.9'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
+  gem 'railroady' # railroady -M | neato -Tpng > db_erd.png
 end

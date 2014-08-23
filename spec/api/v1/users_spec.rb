@@ -9,7 +9,7 @@ describe "User API" do
 
 	    api_get 'users', 'lock', 1
 	    expect(response).to have_http_status(401) 
-  	end    
+  	end   
 
   	it 'get all users' do
 	    api_get 'users', 'producer', 1
@@ -17,7 +17,7 @@ describe "User API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["users"].length).to eq(4)
+	    expect(json.length).to eq(4)
   	end
 
   	it 'check a specific user' do
@@ -26,11 +26,11 @@ describe "User API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["user"]["first_name"]).to eq("Producer")
-	    expect(json["user"]["last_name"]).to eq("1")
-	    expect(json["user"]["production_id"]).to eq(1)
-	    expect(json["user"]["phone_number"]).to eq("0541111111")
-	    expect(json["user"]["role"]).to eq("producer")
+	    expect(json["first_name"]).to eq("Producer")
+	    expect(json["last_name"]).to eq("1")
+	    expect(json["production_id"]).to eq(1)
+	    expect(json["phone_number"]).to eq("0541111111")
+	    expect(json["role"]).to eq("producer")
   	end
 
   	it 'create a new user' do
@@ -85,7 +85,7 @@ describe "User API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["users"].length).to eq(2)  		
+	    expect(json.length).to eq(2)  		
   	end
 
   	it 'unlock a user' do

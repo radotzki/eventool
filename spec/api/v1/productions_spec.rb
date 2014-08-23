@@ -17,7 +17,7 @@ describe "Production API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["productions"].length).to eq(2)
+	    expect(json.length).to eq(2)
   	end
 
   	it 'check a specific production' do
@@ -26,7 +26,7 @@ describe "Production API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["production"]["name"]).to eq("First Production")
+	    expect(json["name"]).to eq("First Production")
   	end
 
   	it 'create a new production' do

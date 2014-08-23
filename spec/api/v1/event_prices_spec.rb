@@ -17,7 +17,7 @@ describe "EventPrice API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["event_prices"].length).to eq(3)
+	    expect(json.length).to eq(3)
   	end
 
   	it 'check a specific prices' do
@@ -26,8 +26,8 @@ describe "EventPrice API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["event_price"]["event_id"]).to eq(1)
-	    expect(json["event_price"]["price"]).to eq(10)
+	    expect(json["event_id"]).to eq(1)
+	    expect(json["price"]).to eq(10)
 
   	end
 

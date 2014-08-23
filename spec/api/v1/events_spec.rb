@@ -17,7 +17,7 @@ describe "Event API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["events"].length).to eq(2)
+	    expect(json.length).to eq(2)
   	end
 
   	it 'check a specific event' do
@@ -26,7 +26,7 @@ describe "Event API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["event"]["name"]).to eq("First Event")
+	    expect(json["name"]).to eq("First Event")
 	    # expect(json["event"]["when"]).to eq(DateTime.new(2015, 10, 10, 22, 30, 00))	    
   	end
 
@@ -78,6 +78,6 @@ describe "Event API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["events"].length).to eq(4)
+	    expect(json.length).to eq(4)
   	end  	
 end

@@ -6,19 +6,19 @@ describe "Client Permissions" do
   	it 'get all clients' do
 	    api_get 'clients', 'producer', 1
 	    expect(response).to have_http_status(200)
-	    JSON.parse(response.body)["clients"].each do |usr|
+	    JSON.parse(response.body).each do |usr|
 	    	expect(usr["production_id"]).to eq(1)
   		end
 
 	    api_get 'clients', 'promoter', 1
 	    expect(response).to have_http_status(200)
-	    JSON.parse(response.body)["clients"].each do |usr|
+	    JSON.parse(response.body).each do |usr|
 	    	expect(usr["production_id"]).to eq(1)
   		end
 
 	    api_get 'clients', 'cashier', 1
 	    expect(response).to have_http_status(200)
-	    JSON.parse(response.body)["clients"].each do |usr|
+	    JSON.parse(response.body).each do |usr|
 	    	expect(usr["production_id"]).to eq(1)
   		end
   	end
@@ -93,19 +93,19 @@ describe "Client Permissions" do
   	it 'search clients' do
 	    api_get 'clients/search', 'producer', 1, 'search_param=ir'
 	    expect(response).to have_http_status(200)
-	    JSON.parse(response.body)["clients"].each do |cln|
+	    JSON.parse(response.body).each do |cln|
 	    	expect(cln["production_id"]).to eq(1)
   		end
 
 	    api_get 'clients/search', 'promoter', 1, 'search_param=ir'
 	    expect(response).to have_http_status(200)
-	    JSON.parse(response.body)["clients"].each do |cln|
+	    JSON.parse(response.body).each do |cln|
 	    	expect(cln["production_id"]).to eq(1)
   		end
 
 	    api_get 'clients/search', 'cashier', 1, 'search_param=ir'
 	    expect(response).to have_http_status(200)
-	    JSON.parse(response.body)["clients"].each do |cln|
+	    JSON.parse(response.body).each do |cln|
 	    	expect(cln["production_id"]).to eq(1)
   		end
   	end  	

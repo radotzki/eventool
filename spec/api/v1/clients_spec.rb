@@ -17,7 +17,7 @@ describe "Client API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["clients"].length).to eq(3)
+	    expect(json.length).to eq(3)
   	end
 
   	it 'check a specific client' do
@@ -26,13 +26,13 @@ describe "Client API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["client"]["first_name"]).to eq("Nir")
-	    expect(json["client"]["last_name"]).to eq("Radotzki")
-	    expect(json["client"]["production_id"]).to eq(1)
-	    expect(json["client"]["phone_number"]).to eq("0541324543")
-	    expect(json["client"]["city"]).to eq("Tel Mond")
-	    expect(json["client"]["gender"]).to eq("male")
-	    expect(json["client"]["birthdate"]).to eq("1997-05-21")
+	    expect(json["first_name"]).to eq("Nir")
+	    expect(json["last_name"]).to eq("Radotzki")
+	    expect(json["production_id"]).to eq(1)
+	    expect(json["phone_number"]).to eq("0541324543")
+	    expect(json["city"]).to eq("Tel Mond")
+	    expect(json["gender"]).to eq("male")
+	    expect(json["birthdate"]).to eq("1997-05-21")
   	end
 
   	it 'create a new client' do
@@ -93,6 +93,6 @@ describe "Client API" do
   		expect(response).to have_http_status(200)
 
   		json = JSON.parse(response.body)
-	    expect(json["clients"].length).to eq(2)
+	    expect(json.length).to eq(2)
   	end
 end

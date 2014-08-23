@@ -17,7 +17,7 @@ describe "ClientComment API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["client_comments"].length).to eq(1)
+	    expect(json.length).to eq(1)
   	end
 
   	it 'check a specific comments' do
@@ -26,9 +26,9 @@ describe "ClientComment API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["client_comment"]["user_id"]).to eq(1)
-	    expect(json["client_comment"]["client_id"]).to eq(1)
-	    expect(json["client_comment"]["comment"]).to eq("Very god man!")
+	    expect(json["user_id"]).to eq(1)
+	    expect(json["client_id"]).to eq(1)
+	    expect(json["comment"]).to eq("Very god man!")
 
   	end
 

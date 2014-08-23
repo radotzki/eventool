@@ -6,19 +6,19 @@ describe "Event Permissions" do
   	it 'get all events' do
 	    api_get 'events', 'producer', 1
 	    expect(response).to have_http_status(200)
-	    JSON.parse(response.body)["events"].each do |usr|
+	    JSON.parse(response.body).each do |usr|
 	    	expect(usr["production_id"]).to eq(1)
   		end
 
 	    api_get 'events', 'promoter', 1
 	    expect(response).to have_http_status(200)
-	    JSON.parse(response.body)["events"].each do |usr|
+	    JSON.parse(response.body).each do |usr|
 	    	expect(usr["production_id"]).to eq(1)
   		end
 
 	    api_get 'events', 'cashier', 1
 	    expect(response).to have_http_status(200)
-	    JSON.parse(response.body)["events"].each do |usr|
+	    JSON.parse(response.body).each do |usr|
 	    	expect(usr["production_id"]).to eq(1)
   		end
   	end

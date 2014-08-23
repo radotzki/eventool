@@ -17,7 +17,7 @@ describe "ClientFriendship API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["client_friendships"].length).to eq(2)
+	    expect(json.length).to eq(2)
   	end
 
   	it 'create a new friendship' do

@@ -17,7 +17,7 @@ describe "Ticket API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["tickets"].length).to eq(4)
+	    expect(json.length).to eq(4)
   	end
 
   	it 'check a specific ticket' do
@@ -26,13 +26,13 @@ describe "Ticket API" do
 	    expect(response).to have_http_status(200)
 	    
 	    json = JSON.parse(response.body)
-	    expect(json["ticket"]["promoter_id"]).to eq(1)
-	    expect(json["ticket"]["client_id"]).to eq(1)
-	    expect(json["ticket"]["event_id"]).to eq(1)
-	    expect(json["ticket"]["event_price_id"]).to eq(1)
-	    expect(json["ticket"]["reason"]).to eq("Good boy!")
-	    expect(json["ticket"]["cashier_id"]).to eq(nil)
-	    expect(json["ticket"]["arrived"]).to eq(false)
+	    expect(json["promoter_id"]).to eq(1)
+	    expect(json["client_id"]).to eq(1)
+	    expect(json["event_id"]).to eq(1)
+	    expect(json["event_price_id"]).to eq(1)
+	    expect(json["reason"]).to eq("Good boy!")
+	    expect(json["cashier_id"]).to eq(nil)
+	    expect(json["arrived"]).to eq(false)
 
   	end
 

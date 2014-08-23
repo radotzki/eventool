@@ -6,19 +6,19 @@ describe "User Permissions" do
   	it 'get all users' do
 	    api_get 'users', 'producer', 1
 	    expect(response).to have_http_status(200)
-	    JSON.parse(response.body)["users"].each do |usr|
+	    JSON.parse(response.body).each do |usr|
 	    	expect(usr["production_id"]).to eq(1)
   		end
 
 	    api_get 'users', 'promoter', 1
 	    expect(response).to have_http_status(200)
-	    JSON.parse(response.body)["users"].each do |usr|
+	    JSON.parse(response.body).each do |usr|
 	    	expect(usr["production_id"]).to eq(1)
   		end
 
 	    api_get 'users', 'cashier', 1
 	    expect(response).to have_http_status(200)
-	    JSON.parse(response.body)["users"].each do |usr|
+	    JSON.parse(response.body).each do |usr|
 	    	expect(usr["production_id"]).to eq(1)
   		end
   	end

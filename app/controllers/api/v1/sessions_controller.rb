@@ -1,14 +1,10 @@
 class API::V1::SessionsController < ApplicationController
 
-  # before_action :restrict_access, except: :create
-  # load_and_authorize_resource except: [:create]
-  
   def create
-    # authenticate_or_request_with_http_basic do |email, password| 
-    found_user = User.find_by_email(params[:email])
-    if found_user && found_user.valid_password?(params[:password]) && !found_user.lock
-      sign_in(found_user)
-      render json: {}, status: :ok
+    user = User.find_for_database_authentication(email: params[:email])
+    if user && user.valid_password?(params[:password]) && !user.lock
+      token = user.ensure_authentication_token
+      render json: {auth_token: token}, status: :ok
     else
       render json: {}, status: :unauthorized
     end

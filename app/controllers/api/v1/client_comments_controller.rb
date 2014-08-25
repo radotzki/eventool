@@ -5,7 +5,7 @@ class API::V1::ClientCommentsController < ApplicationController
   before_action :check_client
 
   def index
-  	render json: @client.comments, status: :ok
+    render json: @client.comments, status: :ok
   end
 
   def show

@@ -19,16 +19,16 @@ class Ability
         # Event
         can [ :read, :create, :update, :destroy, :tickets ], Event, :production_id => user.production_id
 
-        # Comment - Other restrictions set in ClientComments Controller
-        can [ :read, :create, :update, :destroy ], ClientComment
+        # Comment - More restrictions set in the controller
+        can [ :read, :update, :create, :destroy ], ClientComment
 
-        # Frineds - Other restrictions set in ClientFriendships Controller
+        # Frineds - More restrictions set in the controller
         can [ :read, :create, :destroy ], ClientFriendship
 
-        # Price - Other restrictions set in EventPrices Controller
+        # Price - More restrictions set in the controller
         can [ :read, :create, :update, :destroy ], EventPrice  
 
-        # Ticket - Other restrictions set in Tickets Controller
+        # Ticket - More restrictions set in the controller
         can [ :read, :create, :update, :destroy ], Ticket     
 
     elsif user.promoter?
@@ -46,16 +46,16 @@ class Ability
         # Event
         can [ :read, :tickets], Event, :production_id => user.production_id
 
-        # Comment - Other restrictions set in ClientComments Controller
+        # Comment - More restrictions set in the controller
         can [ :read, :create, :update, :destroy ], ClientComment
 
-        # Frineds - Other restrictions set in ClientFriendships Controller
+        # Frineds - More restrictions set in the controller
         can [ :read, :create, :destroy ], ClientFriendship
 
-        # Price - Other restrictions set in EventPrices Controller
+        # Price - More restrictions set in the controller
         can [ :read ], EventPrice
 
-        # Ticket - Other restrictions set in Tickets Controller
+        # Ticket - More restrictions set in the controller
         can [ :read, :create ], Ticket
         can [ :update, :destroy ], Ticket, :promoter_id => user.id
         
@@ -74,15 +74,16 @@ class Ability
         # Event
         can [ :read, :tickets], Event, :production_id => user.production_id  
 
-        # Comment - Other restrictions set in ClientComments Controller
+        # Comment - More restrictions set in the controller
         can [ :read, :create, :update ], ClientComment     
 
-        # Friends
+        # Friends - More restrictions set in the controller
+        can [], ClientFriendship
 
-        # Price - Other restrictions set in EventPrices Controller
+        # Price - More restrictions set in the controller
         can [ :read ], EventPrice
 
-        # Ticket - Other restrictions set in Tickets Controller
+        # Ticket - More restrictions set in the controller
         can [ :read, :checkin ], Ticket
     
     end

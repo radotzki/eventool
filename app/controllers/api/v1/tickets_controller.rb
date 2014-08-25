@@ -1,11 +1,12 @@
 class API::V1::TicketsController < ApplicationController
 
   before_action :restrict_access
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:create]
   before_action :check_client
+  before_action :check_before_create, only: [:create]
 
   def index
-  	render json: @client.tickets, status: :ok
+    render json: @client.tickets, status: :ok
   end
 
   def show
@@ -56,8 +57,8 @@ class API::V1::TicketsController < ApplicationController
       @ticket.arrived = true
       @ticket.cashier_id = current_user.id
       if @ticket.save
-      	render json: {message: "Ticket updated."}, status: :ok
-	  else
+        render json: {message: "Ticket updated."}, status: :ok
+    else
         render json: {message: "Ticket not updated.", error: @ticket.errors}, status: :no_content
       end
     end
@@ -77,5 +78,11 @@ class API::V1::TicketsController < ApplicationController
         render json: {message: "Unauthorized."}, status: :forbidden
       end
     end
+
+    def check_before_create
+      if current_user.role == "cashier"
+        render json: {message: "Unauthorized."}, status: :forbidden
+      end
+    end    
 
 end

@@ -37,7 +37,7 @@ describe "Ticket Permissions" do
 	    expect(response).to have_http_status(403)
   	end
 
-  	it 'create a new ticket' do
+  	it 'create a new ticket by producer' do
   		params = {
   			event_id: 2,
   			event_price_id: 4,
@@ -47,11 +47,26 @@ describe "Ticket Permissions" do
 	    expect(response).to have_http_status(201)
 	    api_post 'clients/1/tickets', 'producer', 2, params
 	    expect(response).to have_http_status(403)
-	    
+  	end
+
+  	it 'create a new ticket by promoter' do
+  		params = {
+  			event_id: 2,
+  			event_price_id: 4,
+  			reason: "Test me"
+  		}
 	    api_post 'clients/1/tickets', 'promoter', 1, params
 	    expect(response).to have_http_status(201)
 	    api_post 'clients/1/tickets', 'promoter', 2, params
 	    expect(response).to have_http_status(403)
+  	end
+
+  	it 'create a new ticket by cashier' do
+  		params = {
+  			event_id: 2,
+  			event_price_id: 4,
+  			reason: "Test me"
+  		}
 
 	    api_post 'clients/1/tickets', 'cashier', 1, params
 	    expect(response).to have_http_status(403)

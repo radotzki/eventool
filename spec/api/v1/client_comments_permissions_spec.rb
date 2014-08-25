@@ -15,6 +15,8 @@ describe "ClientComment Permissions" do
 	    expect(response).to have_http_status(403)   
 
 	    api_get 'clients/1/comments', 'cashier', 1
+	    expect(response).to have_http_status(200)
+		api_get 'clients/1/comments', 'cashier', 2
 	    expect(response).to have_http_status(403)
   	end
 
@@ -30,7 +32,9 @@ describe "ClientComment Permissions" do
 	    api_get 'clients/4/comments/2', 'promoter', 1
 	    expect(response).to have_http_status(403)
 
-	    api_get 'clients/4/comments/2', 'cashier', 2
+	    api_get 'clients/1/comments/1', 'cashier', 1
+	    expect(response).to have_http_status(200)
+	    api_get 'clients/4/comments/2', 'cashier', 1
 	    expect(response).to have_http_status(403)
   	end
 
@@ -49,6 +53,8 @@ describe "ClientComment Permissions" do
 	    expect(response).to have_http_status(403)
 
 	    api_post 'clients/1/comments', 'cashier', 1, params
+	    expect(response).to have_http_status(201)
+	    api_post 'clients/1/comments', 'cashier', 2, params
 	    expect(response).to have_http_status(403)
   	end
 
@@ -64,6 +70,8 @@ describe "ClientComment Permissions" do
 	    expect(response).to have_http_status(403)
 
 	    api_put 'clients/1/comments/1', 'cashier', 1, "comment=test"
+	    expect(response).to have_http_status(200)
+	    api_put 'clients/1/comments/1', 'cashier', 2, "comment=test"
 	    expect(response).to have_http_status(403)
   	end
 

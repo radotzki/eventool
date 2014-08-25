@@ -22,7 +22,7 @@ class Ability
         # Comment - Other restrictions set in ClientComments Controller
         can [ :read, :create, :update, :destroy ], ClientComment
 
-        # Frineds - Other restrictions set in ClientFriendshipw Controller
+        # Frineds - Other restrictions set in ClientFriendships Controller
         can [ :read, :create, :destroy ], ClientFriendship
 
         # Price - Other restrictions set in EventPrices Controller
@@ -74,7 +74,8 @@ class Ability
         # Event
         can [ :read, :tickets], Event, :production_id => user.production_id  
 
-        # Comment      
+        # Comment - Other restrictions set in ClientComments Controller
+        can [ :read, :create, :update ], ClientComment     
 
         # Friends
 

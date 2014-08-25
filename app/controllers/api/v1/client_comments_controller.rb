@@ -1,7 +1,7 @@
 class API::V1::ClientCommentsController < ApplicationController
 
   before_action :restrict_access
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:create]
   before_action :check_client
 
   def index

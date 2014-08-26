@@ -1,4 +1,9 @@
 class API::V1::SessionsController < ApplicationController
+  before_action :restrict_access, except: :create
+  
+  def show
+    render json: current_user, status: :ok
+  end
 
   def create
     user = User.find_for_database_authentication(email: params[:email])

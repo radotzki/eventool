@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, skip: [ :sessions ]
   as :user do
     post '/api/v1/login' => 'api/v1/sessions#create'
+    get '/api/v1/current_user' => 'api/v1/sessions#show'
   end
   # match ':controller(/:action(/:id))', :via => [:get, :post]
   # root to: "productions#index"

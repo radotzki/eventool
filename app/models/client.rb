@@ -2,7 +2,7 @@ class Client < ActiveRecord::Base
 
 	belongs_to :production
 	has_many :comments, :class_name => "ClientComment", :foreign_key => 'client_id'
-	has_many :tickets
+	has_many :tickets, :dependent => :delete_all
 	has_many :friend_one, :class_name => 'ClientFriendship', :foreign_key => 'client_one_id'
   	has_many :friend_two, :class_name => 'ClientFriendship', :foreign_key => 'client_two_id'
 	

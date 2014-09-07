@@ -26,6 +26,7 @@ Rails.application.routes.draw do
         resources :friends, controller: 'client_friendships', only: [:index, :create, :destroy]
         resources :tickets, only: [:index, :show, :create, :update, :destroy] do
           put 'checkin', on: :member
+          put 'change_price', on: :member
         end
       end
 

@@ -64,6 +64,20 @@ class API::V1::TicketsController < ApplicationController
     end
   end
 
+   def change_price
+    @ticket = Client.find_by_id(params[:client_id]).tickets.find_by_id(params[:id])
+    if !@ticket
+      render json: {message: "Ticket not found."}, status: :not_found
+    else
+      @ticket.event_price_id = params[:event_price_id]
+      if @ticket.save
+        render json: {message: "Ticket updated."}, status: :ok
+    else
+        render json: {message: "Ticket not updated.", error: @ticket.errors}, status: :no_content
+      end
+    end
+  end
+
    private
 
     def ticket_params

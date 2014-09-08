@@ -20,7 +20,16 @@ class API::V1::ProductionsController < ApplicationController
   def create
     @production = Production.new(production_params)
     if @production.save
-      render json: {message: "Production created."}, status: :created
+      # Create user
+      @user = User.new(user_params)
+      @user.production_id = @production.id
+      @user.producer!
+      @user.lock = "false"
+      if @user.save
+        render json: {message: "Production created."}, status: :created
+      else
+        render json: {message: "User not created.", error: @user.errors}, status: :not_found
+      end
     else
       render json: {message: "Production not created.", error: @production.errors}, status: :not_found
     end
@@ -50,6 +59,10 @@ class API::V1::ProductionsController < ApplicationController
 
     def production_params
       params.permit(:name)
+    end
+
+    def user_params
+      params.permit(:first_name, :last_name, :email, :password ,:phone_number)
     end
 
 end

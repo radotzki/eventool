@@ -18,15 +18,17 @@ gem 'cancancan', '~> 1.9'
 
 group :development, :test do
 	# Using for testing
-  	gem 'rspec-rails', '~> 3.0.0'
+	gem 'rspec-rails', '~> 3.0.0'
   	# Using for create DB ERD
   	gem 'railroady' # railroady -M | neato -Tpng > db_erd.png
-end
+  end
 
 group :production do
-	# Using for Heroku
-	gem 'rails_12factor'
-end
+  	gem 'capistrano', '~> 3.1.0'
+  	gem 'capistrano-bundler', '~> 1.1.2'
+  	gem 'capistrano-rails', '~> 1.1.1'
+  	gem 'capistrano-rvm', github: "capistrano/rvm"
+  end
 
-# Specify ruby version for Heroku
+# Specify ruby version
 ruby '2.1.2'

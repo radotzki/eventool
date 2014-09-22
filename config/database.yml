@@ -1,34 +1,9 @@
 # PostgreSQL. Versions 8.2 and up are supported.
 # DONT FOTRGET TO USE 'pg' gem
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-
-development:
-  <<: *default
-  database: eventool_development
-
-test:
-  <<: *default
-  database: eventool_test
-
-
-production:
-  <<: *default
-  database: eventool_production
-  username: eventool
-  password: <%= ENV['EVENTOOL_DATABASE_PASSWORD'] %>
-
-# MySQL.  Versions 5.0+ are recommended.
-# DONT FOTRGET TO USE 'mysql2' gem
 # default: &default
-#   adapter: mysql2
-#   encoding: utf8
+#   adapter: postgresql
+#   encoding: unicode
 #   pool: 5
-#   username: eventool_server
-#   password: 12345
-#   socket: /tmp/mysql.sock
 
 # development:
 #   <<: *default
@@ -44,3 +19,28 @@ production:
 #   database: eventool_production
 #   username: eventool
 #   password: <%= ENV['EVENTOOL_DATABASE_PASSWORD'] %>
+
+# MySQL.  Versions 5.0+ are recommended.
+# DONT FOTRGET TO USE 'mysql2' gem
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: eventool_server
+  password: 12345
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: eventool_development
+
+test:
+  <<: *default
+  database: eventool_test
+
+
+production:
+  <<: *default
+  database: eventool_production
+  username: eventool
+  password: <%= ENV['EVENTOOL_DATABASE_PASSWORD'] %>

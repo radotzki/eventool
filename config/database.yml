@@ -5,7 +5,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: eventool_server
-  password: <%= ENV['EVENTOOL_DATABASE_PASSWORD'] %>
+  password: 12345
   socket: <%=
         ['/opt/local/var/run/mysql5/mysqld.sock',
          '/opt/local/var/run/mysqld/mysqld.sock',
@@ -24,6 +24,7 @@ test:
 production:
   <<: *default
   database: eventool_production
+  password: <%= ENV['EVENTOOL_DATABASE_PASSWORD'] %>
 
 
 # PostgreSQL. Versions 8.2 and up are supported.

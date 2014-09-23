@@ -60,8 +60,6 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
-    figaro (1.0.0)
-      thor (~> 0.14)
     hike (1.2.3)
     i18n (0.6.11)
     json (1.8.1)
@@ -153,7 +151,6 @@ DEPENDENCIES
   capistrano-rails (~> 1.1.1)
   capistrano-rvm!
   devise
-  figaro
   mysql2
   railroady
   rails (= 4.1.4)

@@ -13,8 +13,6 @@ gem "active_model_serializers"
 gem 'devise'
 # Authorization
 gem 'cancancan', '~> 1.9'
-# keeps configuration out of Git
-gem "figaro"
 
 group :development, :test do
 	# Using for testing

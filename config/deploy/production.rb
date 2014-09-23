@@ -1,3 +1,4 @@
 set :stage, :production
+set :password, ask('Server password', nil)
 
-server 'amitay.cloudapp.net', user: 'root', roles: %w{web app}, password: "87%N%a6xCZb#*NWJ"
+server 'amitay.cloudapp.net', user: 'root', roles: %w{web app}, password: fetch(:password)

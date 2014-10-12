@@ -13,8 +13,6 @@ gem "active_model_serializers"
 gem 'devise'
 # Authorization
 gem 'cancancan', '~> 1.9'
-# CORS
-gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
 	# Using for testing

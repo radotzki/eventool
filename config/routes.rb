@@ -5,12 +5,10 @@ Rails.application.routes.draw do
     post '/api/v1/login' => 'api/v1/sessions#create'
     get '/api/v1/current_user' => 'api/v1/sessions#show'
   end
-  # match ':controller(/:action(/:id))', :via => [:get, :post]
-  # root to: "productions#index"
 
   namespace :api, :defaults => {:format => :json} do
     namespace :v1 do
-      
+
       resources :productions, only: [:index, :show, :create, :update, :destroy]
 
       resources :users, only: [:index, :show, :create, :update, :destroy] do
@@ -34,7 +32,9 @@ Rails.application.routes.draw do
         get 'tickets', on: :member
         resources :prices, controller: 'event_prices', only: [:index, :show, :create, :update, :destroy]
       end
-    
+
+      get 'clients/:id/in_event/:event_id' => 'clients#in_event'
+
     end
   end
 

@@ -13,7 +13,7 @@ class Ability
         can [ :read, :destroy, :update, :tickets, :unlock, :lock, :change_role ], User, :production_id => user.production_id
 
         # Client
-        can [ :read, :create, :update, :destroy ], Client, :production_id => user.production_id
+        can [ :read, :create, :update, :destroy, :in_event ], Client, :production_id => user.production_id
         can [ :search ], Client
 
         # Event
@@ -40,7 +40,7 @@ class Ability
         can [ :update, :tickets ], User, :id => user.id        
 
         # Client
-        can [ :read, :create, :update, :destroy ], Client, :production_id => user.production_id
+        can [ :read, :create, :update, :destroy, :in_event ], Client, :production_id => user.production_id
         can [ :search ], Client
 
         # Event
@@ -68,7 +68,7 @@ class Ability
         can [ :update ], User, :id => user.id
 
         # Client
-        can [ :read, :create ], Client, :production_id => user.production_id
+        can [ :read, :create, :in_event ], Client, :production_id => user.production_id
         can [ :search ], Client
 
         # Event

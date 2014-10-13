@@ -56,7 +56,7 @@ class Ability
         can [ :read ], EventPrice
 
         # Ticket - More restrictions set in the controller
-        can [ :read, :create, :checkin ], Ticket
+        can [ :read, :create ], Ticket
         can [ :update, :destroy, :change_price ], Ticket, :promoter_id => user.id
         
     elsif user.cashier?

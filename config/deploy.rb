@@ -1,9 +1,9 @@
 set :application, 'eventool'
 set :repo_url, 'git@github.com:radotzki/eventool_server.git'
 
-# set :deploy_to, '/home/deploy/eventool'
+set :deploy_to, '/home/deploy/eventool'
 # deploy to dev 
-set :deploy_to, '/home/deploy/eventool_dev'
+# set :deploy_to, '/home/deploy/eventool_dev'
 
 set :linked_files, %w{config/database.yml config/secrets.yml}
 

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
         resources :tickets, only: [:index, :show, :create, :update, :destroy] do
           put 'checkin', on: :member
           put 'change_price', on: :member
+          get 'current_event', on: :collection
         end
       end
 
@@ -32,8 +33,6 @@ Rails.application.routes.draw do
         get 'tickets', on: :member
         resources :prices, controller: 'event_prices', only: [:index, :show, :create, :update, :destroy]
       end
-
-      get 'clients/:id/in_event/:event_id' => 'clients#in_event'
 
     end
   end

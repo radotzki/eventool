@@ -29,7 +29,7 @@ class Ability
         can [ :read, :create, :update, :destroy ], EventPrice  
 
         # Ticket - More restrictions set in the controller
-        can [ :read, :create, :update, :destroy, :checkin, :change_price ], Ticket     
+        can [ :read, :create, :update, :destroy, :checkin, :change_price,  :current_event ], Ticket     
 
     elsif user.promoter?
         # Production
@@ -56,7 +56,7 @@ class Ability
         can [ :read ], EventPrice
 
         # Ticket - More restrictions set in the controller
-        can [ :read, :create ], Ticket
+        can [ :read, :create, :current_event ], Ticket
         can [ :update, :destroy, :change_price ], Ticket, :promoter_id => user.id
         
     elsif user.cashier?
@@ -84,7 +84,7 @@ class Ability
         can [ :read ], EventPrice
 
         # Ticket - More restrictions set in the controller
-        can [ :read, :checkin ], Ticket
+        can [ :read, :checkin, :current_event ], Ticket
     
     end
 

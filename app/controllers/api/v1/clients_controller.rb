@@ -51,22 +51,6 @@ class API::V1::ClientsController < ApplicationController
     render json: Client.search(params[:search_param], current_user.production_id), status: :ok
   end
 
-  def in_event
-    @client = Client.find_by_id(params[:id])
-    if !@client
-      render json: {message: "Client not found."}, status: :not_found
-    else
-      @res = false
-      @tickets = @client.tickets
-      @tickets.each do |ticket|
-        if ticket.arrived && ticket.event_id.to_s == params[:event_id].to_s
-          @res = true
-        end
-      end
-      render json: @res, status: :ok
-    end
-  end
-
   private
 
   def client_params

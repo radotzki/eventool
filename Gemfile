@@ -21,6 +21,8 @@ group :development, :test do
 	gem 'rspec-rails', '~> 3.0.0'
 	# Using for create DB ERD
 	gem 'railroady' # railroady -M | neato -Tpng > db_erd.png
+  # Nice formating in console
+  # gem 'hirb'
   end
 
 group :production do

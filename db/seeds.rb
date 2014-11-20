@@ -387,7 +387,7 @@ Ticket.create(:event_id=>2, :client_id=>3, :promoter_id=>6, :event_price_id=>6, 
 Ticket.create(:event_id=>2, :client_id=>16, :promoter_id=>6, :event_price_id=>4, :reason=>"Good boy!", :arrived=>true, :cashier_id=>8)
 Ticket.create(:event_id=>2, :client_id=>91, :promoter_id=>6, :event_price_id=>5, :reason=>"Good boy!", :arrived=>true, :cashier_id=>9)
 Ticket.create(:event_id=>2, :client_id=>87, :promoter_id=>6, :event_price_id=>6, :reason=>"Good boy!", :arrived=>true, :cashier_id=>10)
-Ticket.create(:event_id=>2, :client_id=>13, :promoter_id=>6, :event_price_id=>4, :reason=>"Good boy!", :arrived=>true, :cashier_id=>8)
+Ticket.create(:event_id=>2, :client_id=>13, :promoter_id=>6, :event_price_id=>4, :reason=>"Good boy!")
 Ticket.create(:event_id=>2, :client_id=>11, :promoter_id=>6, :event_price_id=>5, :reason=>"Good boy!")
 Ticket.create(:event_id=>2, :client_id=>20, :promoter_id=>6, :event_price_id=>6, :reason=>"Good boy!", :arrived=>true, :cashier_id=>10)
 Ticket.create(:event_id=>2, :client_id=>120, :promoter_id=>6, :event_price_id=>4, :reason=>"Good boy!")
@@ -444,7 +444,7 @@ Ticket.create(:event_id=>3, :client_id=>167, :promoter_id=>4, :event_price_id=>9
 Ticket.create(:event_id=>3, :client_id=>72, :promoter_id=>4, :event_price_id=>7, :reason=>"Good boy!")
 Ticket.create(:event_id=>3, :client_id=>120, :promoter_id=>4, :event_price_id=>8, :reason=>"Good boy!")
 Ticket.create(:event_id=>3, :client_id=>143, :promoter_id=>4, :event_price_id=>9, :reason=>"Good boy!")
-Ticket.create(:event_id=>3, :client_id=>16, :promoter_id=>4, :event_price_id=>7, :reason=>"Good boy!")
+Ticket.create(:event_id=>3, :client_id=>19, :promoter_id=>4, :event_price_id=>7, :reason=>"Good boy!")
 Ticket.create(:event_id=>3, :client_id=>18, :promoter_id=>4, :event_price_id=>8, :reason=>"Good boy!")
 Ticket.create(:event_id=>3, :client_id=>94, :promoter_id=>4, :event_price_id=>9, :reason=>"Good boy!")
 

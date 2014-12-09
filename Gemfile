@@ -8,7 +8,7 @@ gem 'mysql2'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 # Make serializer to desplay json
-gem "active_model_serializers"
+gem 'active_model_serializers', '~> 0.9.1'
 # Authentication
 gem 'devise'
 # Authorization

@@ -10,8 +10,10 @@ class API::V1::SessionsController < ApplicationController
     if user && user.valid_password?(params[:password]) && !user.lock
       token = user.ensure_authentication_token
       render json: {token: token, user: user}, status: :ok
+    elsif user
+      render json: 'The password you entered is incorrect.', status: 499
     else
-      render json: {}, status: :unauthorized
+      render json: 'The email you entered does not belong to any account.', status: 499
     end
     
   end

@@ -21,7 +21,9 @@ Rails.application.routes.draw do
       resources :clients, only: [:index, :show, :create, :update, :destroy] do
         get 'search', on: :collection
         resources :comments, controller: 'client_comments', only: [:index, :show, :create, :update, :destroy]
-        resources :friends, controller: 'client_friendships', only: [:index, :create, :destroy]
+        resources :friends, controller: 'client_friendships', only: [:index, :create, :destroy] do
+          get 'count', on: :collection
+        end
         resources :tickets, only: [:index, :show, :create, :update, :destroy] do
           put 'checkin', on: :member
           put 'change_price', on: :member

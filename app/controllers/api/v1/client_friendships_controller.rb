@@ -8,6 +8,10 @@ class API::V1::ClientFriendshipsController < ApplicationController
     render json: @client.friends, status: :ok
   end
 
+  def count
+    render json: @client.friends.size, status: :ok
+  end
+
   def create
   @friendship = ClientFriendship.new(friendship_params)
   @friendship.user_id = current_user.id

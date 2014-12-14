@@ -23,7 +23,7 @@ class Ability
         can [ :read, :update, :create, :destroy ], ClientComment
 
         # Frineds - More restrictions set in the controller
-        can [ :read, :create, :destroy ], ClientFriendship
+        can [ :read, :create, :destroy, :count ], ClientFriendship
 
         # Price - More restrictions set in the controller
         can [ :read, :create, :update, :destroy ], EventPrice  
@@ -50,7 +50,7 @@ class Ability
         can [ :read, :create, :update, :destroy ], ClientComment
 
         # Frineds - More restrictions set in the controller
-        can [ :read, :create, :destroy ], ClientFriendship
+        can [ :read, :create, :destroy, :count ], ClientFriendship
 
         # Price - More restrictions set in the controller
         can [ :read ], EventPrice
@@ -78,7 +78,7 @@ class Ability
         can [ :read, :create, :update ], ClientComment     
 
         # Friends - More restrictions set in the controller
-        can [], ClientFriendship
+        can [ :count ], ClientFriendship
 
         # Price - More restrictions set in the controller
         can [ :read ], EventPrice

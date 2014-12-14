@@ -22,7 +22,7 @@ class API::V1::EventsController < ApplicationController
     @event.production_id = current_user.production_id
     @event.user_id = current_user.id
     if @event.save
-      render json: @event.id, status: :created
+      render json: {id: @event.id}, status: :created
     else
       render json: {message: "Event not created.", error: @event.errors}, status: :not_found
     end

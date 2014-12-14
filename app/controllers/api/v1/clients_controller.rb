@@ -21,7 +21,7 @@ class API::V1::ClientsController < ApplicationController
     @client = Client.new(client_params)
     @client.production_id = current_user.production_id
     if @client.save
-      render json: {message: "Client created."}, status: :created
+      render json: {id: @client.id}, status: :created
     else
       render json: {message: "Client not created.", error: @client.errors}, status: :not_found
     end

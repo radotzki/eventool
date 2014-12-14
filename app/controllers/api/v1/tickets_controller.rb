@@ -23,7 +23,7 @@ class API::V1::TicketsController < ApplicationController
     @ticket.client_id = params[:client_id]
     @ticket.promoter_id = current_user.id
     if @ticket.save
-      render json: {message: "Ticket created."}, status: :created
+      render json: {id: @ticket.id}, status: :created
     else
       render json: {message: "Ticket not created.", error: @ticket.errors}, status: :not_found
     end

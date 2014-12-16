@@ -10,6 +10,8 @@ class API::V1::SessionsController < ApplicationController
     if user && user.valid_password?(params[:password]) && !user.lock
       token = user.ensure_authentication_token
       render json: {token: token, user: user}, status: :ok
+    elsif user && user.valid_password?(params[:password])
+      render json: 'Your account is locked, call your producer for confirmation.', status: 499
     elsif user
       render json: 'The password you entered is incorrect.', status: 499
     else

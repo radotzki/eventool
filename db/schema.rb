@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823071502) do
+ActiveRecord::Schema.define(version: 20141217133218) do
 
   create_table "client_comments", force: true do |t|
     t.integer  "user_id"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140823071502) do
     t.string   "first_name",                null: false
     t.string   "last_name",                 null: false
     t.string   "phone_number"
-    t.date     "birthdate"
+    t.datetime "birthdate"
     t.string   "city"
     t.integer  "gender",        default: 0, null: false
     t.datetime "created_at"

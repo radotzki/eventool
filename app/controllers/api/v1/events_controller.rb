@@ -8,6 +8,11 @@ class API::V1::EventsController < ApplicationController
     render json: @production.events, status: :ok
   end
 
+  def upcoming
+    @production = Production.find(current_user.production_id)
+    render json: @production.events.where(['events.when >= ?', Date.today]), status: :ok
+  end
+
   def show
     @event = Event.find_by_id(params[:id])
     if @event

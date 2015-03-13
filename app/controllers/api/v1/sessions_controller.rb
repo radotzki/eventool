@@ -11,11 +11,11 @@ class API::V1::SessionsController < ApplicationController
       token = user.ensure_authentication_token
       render json: {token: token, user: user}, status: :ok
     elsif user && user.valid_password?(params[:password])
-      render json: 'Your account is locked, call your producer for confirmation.', status: 499
+      render json: {message: 'Your account is locked, call your producer for confirmation.'}, status: 499
     elsif user
-      render json: 'The password you entered is incorrect.', status: 499
+      render json: {message: 'The password you entered is incorrect.'}, status: 499
     else
-      render json: 'The email you entered does not belong to any account.', status: 499
+      render json: {message: 'The email you entered does not belong to any account.'}, status: 499
     end
     
   end

@@ -60,7 +60,7 @@ class API::V1::EventsController < ApplicationController
 
   def count_friends_tickets
     @friends_const = 2
-    @friends = Client.find_by_id(params.permit[:client_id]).friends
+    @friends = Client.find_by_id(params[:client_id]).friends
     @total_count = 0
     for i in @friends
       @count = Ticket.joins(:client, :event).where('clients.id' => i.id, 'events.when' => params[:id]).count
@@ -70,7 +70,7 @@ class API::V1::EventsController < ApplicationController
           @total_count += @count
       end
     end
-    render json: @total_count, status: :ok
+    render json: {count: @total_count}, status: :ok
   end
 
    private

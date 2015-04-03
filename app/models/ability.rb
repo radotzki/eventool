@@ -17,7 +17,7 @@ class Ability
         can [ :search ], Client
 
         # Event
-        can [ :read, :create, :update, :destroy, :tickets, :upcoming ], Event, :production_id => user.production_id
+        can [ :read, :create, :update, :destroy, :tickets, :upcoming, :count_friends_tickets ], Event, :production_id => user.production_id
 
         # Comment - More restrictions set in the controller
         can [ :read, :update, :create, :destroy ], ClientComment
@@ -44,7 +44,7 @@ class Ability
         can [ :search ], Client
 
         # Event
-        can [ :read, :tickets, :upcoming ], Event, :production_id => user.production_id
+        can [ :read, :tickets, :upcoming, :count_friends_tickets ], Event, :production_id => user.production_id
 
         # Comment - More restrictions set in the controller
         can [ :read, :create, :update, :destroy ], ClientComment

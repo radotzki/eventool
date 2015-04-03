@@ -225,8 +225,8 @@ Client.create(:production_id=>1 ,:first_name=>"Mildred", :last_name=>"Bowman", :
 Client.create(:production_id=>1 ,:first_name=>"Carolyn", :last_name=>"Steele", :gender=>"female", :phone_number=>"0520011011", :city =>"Herzliya", :birthdate=>"1997-02-29")
 
 # events
-Event.create(:production_id=>1, :user_id=>1, :name=>"Sound Of Sunset", :when=>"2014-09-01 22:30:00")
-Event.create(:production_id=>1, :user_id=>1, :name=>"Color Festival", :when=>"2014-09-07 22:30:00")
+Event.create(:production_id=>1, :user_id=>1, :name=>"Sound Of Sunset", :when=>"2015-03-26 22:30:00")
+Event.create(:production_id=>1, :user_id=>1, :name=>"Color Festival", :when=>DateTime.now)
 Event.create(:production_id=>1, :user_id=>2, :name=>"Friends Party", :when=>"2015-09-14 22:30:00")
 
 # prices for first event
@@ -498,3 +498,37 @@ Ticket.create(:event_id=>3, :client_id=>149, :promoter_id=>7, :event_price_id=>9
 Ticket.create(:event_id=>3, :client_id=>94, :promoter_id=>7, :event_price_id=>7, :reason=>"Good boy!")
 Ticket.create(:event_id=>3, :client_id=>130, :promoter_id=>7, :event_price_id=>8, :reason=>"Good boy!")
 Ticket.create(:event_id=>3, :client_id=>177, :promoter_id=>7, :event_price_id=>9, :reason=>"Good boy!")
+
+# Create friends
+ClientFriendship.create(:user_id=>1, :client_one_id=>1, :client_two_id=>2)
+ClientFriendship.create(:user_id=>1, :client_one_id=>1, :client_two_id=>3)
+ClientFriendship.create(:user_id=>1, :client_one_id=>1, :client_two_id=>4)
+ClientFriendship.create(:user_id=>1, :client_one_id=>1, :client_two_id=>5)
+ClientFriendship.create(:user_id=>1, :client_one_id=>1, :client_two_id=>6)
+ClientFriendship.create(:user_id=>1, :client_one_id=>1, :client_two_id=>7)
+ClientFriendship.create(:user_id=>2, :client_one_id=>1, :client_two_id=>8)
+ClientFriendship.create(:user_id=>2, :client_one_id=>1, :client_two_id=>9)
+ClientFriendship.create(:user_id=>2, :client_one_id=>1, :client_two_id=>10)
+ClientFriendship.create(:user_id=>2, :client_one_id=>11, :client_two_id=>31)
+ClientFriendship.create(:user_id=>2, :client_one_id=>11, :client_two_id=>32)
+ClientFriendship.create(:user_id=>3, :client_one_id=>11, :client_two_id=>33)
+ClientFriendship.create(:user_id=>4, :client_one_id=>11, :client_two_id=>34)
+ClientFriendship.create(:user_id=>4, :client_one_id=>11, :client_two_id=>35)
+ClientFriendship.create(:user_id=>5, :client_one_id=>11, :client_two_id=>36)
+ClientFriendship.create(:user_id=>5, :client_one_id=>50, :client_two_id=>71)
+ClientFriendship.create(:user_id=>5, :client_one_id=>50, :client_two_id=>72)
+ClientFriendship.create(:user_id=>5, :client_one_id=>50, :client_two_id=>73)
+ClientFriendship.create(:user_id=>5, :client_one_id=>50, :client_two_id=>74)
+ClientFriendship.create(:user_id=>6, :client_one_id=>50, :client_two_id=>75)
+ClientFriendship.create(:user_id=>6, :client_one_id=>50, :client_two_id=>76)
+ClientFriendship.create(:user_id=>6, :client_one_id=>50, :client_two_id=>77)
+ClientFriendship.create(:user_id=>6, :client_one_id=>60, :client_two_id=>22)
+ClientFriendship.create(:user_id=>3, :client_one_id=>60, :client_two_id=>23)
+ClientFriendship.create(:user_id=>3, :client_one_id=>60, :client_two_id=>24)
+ClientFriendship.create(:user_id=>3, :client_one_id=>60, :client_two_id=>25)
+ClientFriendship.create(:user_id=>3, :client_one_id=>60, :client_two_id=>26)
+ClientFriendship.create(:user_id=>3, :client_one_id=>60, :client_two_id=>27)
+
+
+
+

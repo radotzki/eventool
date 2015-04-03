@@ -29,6 +29,9 @@ Rails.application.routes.draw do
           put 'change_price', on: :member
           get 'current_event', on: :collection
         end
+        resources :events, only: [] do
+          get 'count_friends_tickets', on: :member
+        end
       end
 
       resources :events, only: [:index, :show, :create, :update, :destroy] do

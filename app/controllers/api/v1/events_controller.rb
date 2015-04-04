@@ -60,17 +60,36 @@ class API::V1::EventsController < ApplicationController
 
   def count_friends_tickets
     @friends_const = 2
+    @events_count = Event.all.count
     @friends = Client.find_by_id(params[:client_id]).friends
     @total_count = 0
+    @currnet_count = 0
+
     for i in @friends
-      @count = Ticket.joins(:client, :event).where('clients.id' => i.id, 'events.id' => params[:id]).count
+      if i.client_one_id == params[:client_id].to_i
+        @friend_id = i.client_two_id
+      else
+        @friend_id = i.client_one_id
+      end
+
+      # current event
+      @count = Ticket.joins(:client, :event).where('clients.id' => @friend_id, 'events.id' => params[:id]).count
+      if @count > 1
+        @currnet_count += (@count - 1) / @friends_const + 1
+      else
+        @currnet_count += @count
+      end
+
+      # all events
+      @count = Client.find(@friend_id).tickets.count
       if @count > 1
         @total_count += (@count - 1) / @friends_const + 1
       else
-          @total_count += @count
+        @total_count += @count
       end
     end
-    render json: {count: @total_count}, status: :ok
+
+    render json: {average: @total_count / @events_count, current: @currnet_count}, status: :ok
   end
 
    private

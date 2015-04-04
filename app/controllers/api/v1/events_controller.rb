@@ -63,7 +63,7 @@ class API::V1::EventsController < ApplicationController
     @friends = Client.find_by_id(params[:client_id]).friends
     @total_count = 0
     for i in @friends
-      @count = Ticket.joins(:client, :event).where('clients.id' => i.id, 'events.when' => params[:id]).count
+      @count = Ticket.joins(:client, :event).where('clients.id' => i.id, 'events.id' => params[:id]).count
       if @count > 1
         @total_count += (@count - 1) / @friends_const + 1
       else

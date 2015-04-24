@@ -15,6 +15,8 @@ gem 'devise'
 gem 'cancancan', '~> 1.9'
 # Enable CORS
 gem 'rack-cors', :require => 'rack/cors'
+# Apriori Algorithm
+gem 'apriori-ruby'
 
 group :development, :test do
 	# Using for testing

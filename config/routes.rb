@@ -36,6 +36,7 @@ Rails.application.routes.draw do
 
       resources :events, only: [:index, :show, :create, :update, :destroy] do
         get 'tickets', on: :member
+        get 'apriori', on: :member
         get 'upcoming', on: :collection
         resources :prices, controller: 'event_prices', only: [:index, :show, :create, :update, :destroy]
       end

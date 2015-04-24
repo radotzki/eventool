@@ -37,6 +37,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    apriori-ruby (0.0.8)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     builder (3.2.2)
@@ -146,6 +147,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.8.1)
+  apriori-ruby
   cancancan (~> 1.9)
   capistrano (~> 3.1.0)
   capistrano-bundler (~> 1.1.2)

@@ -1,7 +1,7 @@
 class API::V1::EventsController < ApplicationController
 
-  before_action :restrict_access
-  load_and_authorize_resource
+  before_action :restrict_access, except: :apriori
+  load_and_authorize_resource except: [:apriori]
   
   def index
   	@production = Production.find(current_user.production_id)
@@ -90,6 +90,11 @@ class API::V1::EventsController < ApplicationController
     end
 
     render json: {average: @total_count / @events_count, current: @currnet_count}, status: :ok
+  end
+
+  def apriori
+    @res = aprioriCalc(false, params[:id].to_i)
+    render json: Client.limit(8), status: :ok
   end
 
    private

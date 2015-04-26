@@ -9,33 +9,51 @@ class ApplicationController < ActionController::Base
 	@@mine_result = []
 
 def aprioriCalc(force, event_id)
-    # [26,27,28,34,36,37,38,39,49,50]
     if (@@mine_result[event_id].nil? || force) 
     	puts "Calc apriori for event #" + event_id.to_s + ".."
-    	@tickets = Ticket.select("client_id", "event_id").where(arrived: true).where.not(event_id: event_id)
+    	
+      @current_event_tickets = Ticket.select("client_id", "event_id").where(event_id: event_id)
+    	@other_tickets = Ticket.select("client_id", "event_id").where(arrived: true).where.not(event_id: event_id)
+      @all_tickets = @current_event_tickets + @other_tickets
 
-    	test_data = {}
-    	for i in @tickets
-    		if test_data[i.event_id].nil?
-    			test_data[i.event_id] = []
+    	@test_data = {}
+    	for i in @all_tickets
+    		if @test_data[i.client_id].nil?
+    			@test_data[i.client_id] = []
     		end
-    		test_data[i.event_id].push(i.client_id)
+    		@test_data[i.client_id].push(i.event_id)
     	end
 
-	    # test_data = {
-	    #   1 => [1,2,3,4],
-	    #   2 => [1,2,3,5],
-	    #   3 => [1,2,3,5,6,7],
-	    #   4 => [1,2,3,8,9,10]
-	    # }
-	    # puts test_data
-	    
-	    item_set = Apriori::ItemSet.new(test_data)
-	    support = 40
-	    confidence = 60
+	    @item_set = Apriori::ItemSet.new(@test_data)
+	    @support = 10
+	    @confidence = 50
 	  
-	    # item_set.create_association_rules(confidence)
-	    @@mine_result[event_id] = item_set.mine(support, confidence)    	
+	  	@rules = @item_set.mine(@support, @confidence)
+
+      puts @rules
+      
+      @filtered_roles = []
+	  	for i in @rules
+	  		first, rest = i[0].split("=>")
+	  		if rest == event_id.to_s
+	  			puts first + " => " + rest
+          @filtered_roles.push(first.split(",").map(&:to_i))
+	  		end
+	  	end
+
+      @res = []
+      @test_data.each do |key, array|
+        if !array.include? event_id
+          for i in @filtered_roles
+            if (i - array).empty?
+              @res.push(Client.find(key))
+              break
+            end
+          end
+        end
+      end
+
+	    @@mine_result[event_id] = @res
     end
 
     @@mine_result[event_id]

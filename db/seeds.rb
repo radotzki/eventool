@@ -69,6 +69,8 @@ Client.create(:production_id=>1 ,:first_name=>"Andrea", :last_name=>"Guerrero", 
 Client.create(:production_id=>1 ,:first_name=>"Christine", :last_name=>"Evans", :gender=>"female", :phone_number=>"0521111711", :city =>"Kfar Sava", :birthdate=>"1997-09-26")
 Client.create(:production_id=>1 ,:first_name=>"Katherine", :last_name=>"Wallace", :gender=>"male", :phone_number=>"0521111811", :city =>"Kfar Sava", :birthdate=>"1997-09-27")
 Client.create(:production_id=>1 ,:first_name=>"Catherine", :last_name=>"French", :gender=>"female", :phone_number=>"0521111911", :city =>"Kfar Sava", :birthdate=>"1997-09-28")
+Client.create(:production_id=>1 ,:first_name=>"Elizabeth", :last_name=>"Wong", :gender=>"female", :phone_number=>"0421362111", :city =>"Raanana", :birthdate=>"1997-08-21")
+Client.create(:production_id=>1 ,:first_name=>"Tammy", :last_name=>"Blake", :gender=>"female", :phone_number=>"0721613780", :city =>"Raanana", :birthdate=>"1997-08-22")
 
 # events
 Event.create(:production_id=>1, :user_id=>1, :name=>"Amsterdam Open Air", :when=>DateTime.now - 30*4)
@@ -248,13 +250,16 @@ Ticket.create(:event_id=>5, :client_id=>2, :promoter_id=>5, :event_price_id=>20,
 Ticket.create(:event_id=>6, :client_id=>26, :promoter_id=>3, :event_price_id=>21)
 Ticket.create(:event_id=>6, :client_id=>27, :promoter_id=>4, :event_price_id=>22)
 Ticket.create(:event_id=>6, :client_id=>28, :promoter_id=>4, :event_price_id=>23)
-Ticket.create(:event_id=>6, :client_id=>34, :promoter_id=>3, :event_price_id=>24)
+Ticket.create(:event_id=>6, :client_id=>34, :promoter_id=>5, :event_price_id=>24)
 Ticket.create(:event_id=>6, :client_id=>36, :promoter_id=>3, :event_price_id=>24)
-Ticket.create(:event_id=>6, :client_id=>37, :promoter_id=>3, :event_price_id=>21)
-Ticket.create(:event_id=>6, :client_id=>38, :promoter_id=>4, :event_price_id=>22)
+Ticket.create(:event_id=>6, :client_id=>37, :promoter_id=>5, :event_price_id=>21)
+Ticket.create(:event_id=>6, :client_id=>38, :promoter_id=>5, :event_price_id=>22)
 Ticket.create(:event_id=>6, :client_id=>39, :promoter_id=>4, :event_price_id=>23)
 Ticket.create(:event_id=>6, :client_id=>49, :promoter_id=>3, :event_price_id=>24)
-Ticket.create(:event_id=>6, :client_id=>50, :promoter_id=>3, :event_price_id=>24)
+Ticket.create(:event_id=>6, :client_id=>50, :promoter_id=>5, :event_price_id=>24)
+# Ticket.create(:event_id=>6, :client_id=>29, :promoter_id=>3, :event_price_id=>24)
+# Ticket.create(:event_id=>6, :client_id=>30, :promoter_id=>5, :event_price_id=>24)
+# Ticket.create(:event_id=>6, :client_id=>31, :promoter_id=>3, :event_price_id=>24)
 
 # comments
 ClientComment.create(:user_id=>3, :client_id=>1, :comment=>"Nice man.")

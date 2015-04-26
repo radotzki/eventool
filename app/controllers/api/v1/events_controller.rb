@@ -94,7 +94,7 @@ class API::V1::EventsController < ApplicationController
 
   def apriori
     @res = aprioriCalc(false, params[:id].to_i)
-    render json: Client.limit(8), status: :ok
+    render json: @res, status: :ok
   end
 
    private

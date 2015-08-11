@@ -9,11 +9,11 @@ class ApplicationController < ActionController::Base
 	@@mine_result = []
 
 def aprioriCalc(force, event_id)
-    if (@@mine_result[event_id].nil? || force) 
+    if (@@mine_result[event_id].nil? || force)
     	puts "Calc apriori for event #" + event_id.to_s + ".."
-    	
+
       @current_event_tickets = Ticket.select("client_id", "event_id").where(event_id: event_id)
-    	@other_tickets = Ticket.select("client_id", "event_id").where(arrived: true).where.not(event_id: event_id)
+      @other_tickets = Ticket.select("client_id", "event_id").where(arrived: true).where.not(event_id: event_id)
       @all_tickets = @current_event_tickets + @other_tickets
 
     	@test_data = {}
@@ -27,11 +27,11 @@ def aprioriCalc(force, event_id)
 	    @item_set = Apriori::ItemSet.new(@test_data)
 	    @support = 10
 	    @confidence = 50
-	  
+
 	  	@rules = @item_set.mine(@support, @confidence)
 
       puts @rules
-      
+
       @filtered_roles = []
 	  	for i in @rules
 	  		first, rest = i[0].split("=>")

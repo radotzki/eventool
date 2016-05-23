@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
-# Use mysql as the database for Active Record
-gem 'mysql2'
+# Use pg as the database for Active Record
+gem 'pg'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 # Make serializer to desplay json
@@ -17,6 +17,8 @@ gem 'cancancan', '~> 1.9'
 gem 'rack-cors', :require => 'rack/cors'
 # Apriori Algorithm
 gem 'apriori-ruby'
+# webserver
+gem 'puma'
 
 group :development, :test do
 	# Using for testing

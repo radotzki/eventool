@@ -1,38 +1,17 @@
 # MySQL.  Versions 5.0+ are recommended.
 # DONT FOTRGET TO USE 'mysql2' gem
-default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  username: root
-  # password: 12345
-  socket: <%=
-        ['/opt/local/var/run/mysql5/mysqld.sock',
-         '/opt/local/var/run/mysqld/mysqld.sock',
-         '/var/run/mysqld/mysqld.sock',
-         '/tmp/mysql.sock'].select { |f| File.exist? f }.first
-          %>
-
-development:
-  <<: *default
-  database: eventool_development
-
-test:
-  <<: *default
-  database: eventool_test
-
-production:
-  <<: *default
-  database: eventool_production
-  password: <%= ENV['EVENTOOL_DATABASE_PASSWORD'] %>
-
-
-# PostgreSQL. Versions 8.2 and up are supported.
-# DONT FOTRGET TO USE 'pg' gem
 # default: &default
-#   adapter: postgresql
-#   encoding: unicode
+#   adapter: mysql2
+#   encoding: utf8
 #   pool: 5
+#   username: root
+#   # password: 12345
+#   socket: <%=
+#         ['/opt/local/var/run/mysql5/mysqld.sock',
+#          '/opt/local/var/run/mysqld/mysqld.sock',
+#          '/var/run/mysqld/mysqld.sock',
+#          '/tmp/mysql.sock'].select { |f| File.exist? f }.first
+#           %>
 
 # development:
 #   <<: *default
@@ -42,11 +21,32 @@ production:
 #   <<: *default
 #   database: eventool_test
 
-
 # production:
 #   <<: *default
 #   database: eventool_production
-#   username: eventool
 #   password: <%= ENV['EVENTOOL_DATABASE_PASSWORD'] %>
+
+
+# PostgreSQL. Versions 8.2 and up are supported.
+# DONT FOTRGET TO USE 'pg' gem
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: eventool_development
+
+test:
+  <<: *default
+  database: eventool_test
+
+
+production:
+  <<: *default
+  database: eventool_production
+  username: eventool
+  password: <%= ENV['EVENTOOL_DATABASE_PASSWORD'] %>
 
 

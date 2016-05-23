@@ -4,12 +4,12 @@ set :repo_url, 'git@github.com:radotzki/eventool_server.git'
 # for deploy run the following:
 # bundle exec cap production deploy
 set :deploy_to, '/home/deploy/eventool'
-# deploy to dev 
+# deploy to dev
 # set :deploy_to, '/home/deploy/eventool_dev'
 
 set :linked_files, %w{config/database.yml config/secrets.yml}
 
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets public/system}
 
 namespace :deploy do
 

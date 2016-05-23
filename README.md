@@ -12,4 +12,4 @@ If you are a producer and you want to make your life easier and earn more many, 
 
 <hr>
 
-Read more on [Eventool Wiki] (https://github.com/radotzki/eventool/wiki)
+Read more on [Eventool Wiki] (https://github.com/radotzki/eventool-server/wiki)

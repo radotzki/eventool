@@ -70,12 +70,13 @@ GEM
     mime-types (1.25.1)
     minitest (5.4.0)
     multi_json (1.10.1)
-    mysql2 (0.3.18)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
     orm_adapter (0.5.0)
+    pg (0.18.4)
     polyglot (0.3.5)
+    puma (3.4.0)
     rack (1.5.2)
     rack-cors (0.2.9)
     rack-test (0.6.2)
@@ -154,7 +155,8 @@ DEPENDENCIES
   capistrano-rails (~> 1.1.1)
   capistrano-rvm!
   devise
-  mysql2
+  pg
+  puma
   rack-cors
   railroady
   rails (= 4.1.4)

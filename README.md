@@ -50,7 +50,7 @@ Each production can have one or more producers.
 * [Login] (https://github.com/radotzki/eventool_server/wiki/API:-Login)
 * [Production](https://github.com/radotzki/eventool/wiki/API:-Production)
 * [User](https://github.com/radotzki/eventool/wiki/API:-User)
-* [Client](https://github.com/radotzki/eventool/wiki/API:-Client)
+* [Client](https://github.com/radotzki/eventool-server#api-client)
 * [Event](https://github.com/radotzki/eventool/wiki/API:-Event)
 * [Client Comment](https://github.com/radotzki/eventool/wiki/API:-Client-Comment)
 * [Client Friendship](https://github.com/radotzki/eventool/wiki/API:-Client-Friendship)

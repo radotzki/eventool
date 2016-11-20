@@ -37,4 +37,4 @@ group :production do
   end
 
 # Specify ruby version
-ruby '2.1.5'
+ruby '2.1.8'

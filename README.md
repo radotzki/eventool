@@ -61,18 +61,6 @@ Each production can have one or more producers.
 * [Tables Descriptions] (https://github.com/radotzki/eventool-server#tables-descriptions)
 * [ERD] (https://github.com/radotzki/eventool-server#erd)
 
-## Environments:
-There are 3 different environments: 
-* Production - http://amitay.cloudapp.net
-* Development - http://amitay.cloudapp.net:3000
-* Test - http://eventool-test.herokuapp.com 
-<br>In this environment the db must stay static. If you want to change something in the db please open an issue, do not change by yourself! 
-
-## Cascade Policy:
-* When delete a client all tickets will be deleted.
-* When delete an event all tickets will be deleted.
-* When delete an event price all tickets with that price will be deleted.
-
 <hr>
 
 ### API: Login
@@ -126,14 +114,14 @@ DELETE /api/v1/productions/:id
 
 ### API: User
 ```  	
-GET    http://eventool.herokuapp.com/api/v1/users
+GET    /api/v1/users
 ```
 *   	**Description:** Return all users from logged in user's production.
 *   	**Permission:** Producer, Promoter, Cashier (Production dependency).
 
 
 ```  	
-POST   http://eventool.herokuapp.com/api/v1/users
+POST   /api/v1/users
 ```
 *   	**Description:** Create a new user.
   	             <br>Requires: production_id, first_name, last_name, email, password, role.
@@ -141,13 +129,13 @@ POST   http://eventool.herokuapp.com/api/v1/users
 *   	**Permission:** Guest.
 
 ```  	
-GET    http://eventool.herokuapp.com/api/v1/users/:id
+GET    /api/v1/users/:id
 ```
 *   	**Description:** Returns a specific user.
 *   	**Permission:** Producer, Promoter, Cashier (Production dependency).
 
 ```  	
-PUT    http://eventool.herokuapp.com/api/v1/users/:id
+PUT    /api/v1/users/:id
 ```
 *   	**Description:** Update a user. 
                      <br>Optionals: first_name, last_name, email, password, phone_number.
@@ -155,31 +143,31 @@ PUT    http://eventool.herokuapp.com/api/v1/users/:id
                     <br>Promoter and Cashier can only update themself.
 
 ```  	
-DELETE http://eventool.herokuapp.com/api/v1/users/:id
+DELETE /api/v1/users/:id
 ```
 *   	**Description:** Delete a user.
 *   	**Permission:** Producer (Production dependency).
 
 ```  	
-GET    http://eventool.herokuapp.com/api/v1/users/:id/tickets
+GET    /api/v1/users/:id/tickets
 ```  	
 *   	**Description:** Returns all tickets that the user registered.
 *   	**Permission:** Producer. Promoter can see only his tickets (Production dependency).
 
 ```  	
-PUT    http://eventool.herokuapp.com/api/v1/users/:id/unlock
+PUT    /api/v1/users/:id/unlock
 ```  	
 *   	**Description:** Unlock a user account.
 *   	**Permission:** Producer (Production dependency).
 
 ```  	
-PUT    http://eventool.herokuapp.com/api/v1/users/:id/lock
+PUT    /api/v1/users/:id/lock
 ```  	
 *   	**Description:** Lock a user account.
 *   	**Permission:** Producer (Production dependency).
 
 ```  	
-PUT    http://eventool.herokuapp.com/api/v1/users/:id/change_role
+PUT    /api/v1/users/:id/change_role
 ```  	
 *   	**Description:** Change user's role.
                      <br>Requires: role.
@@ -188,13 +176,13 @@ PUT    http://eventool.herokuapp.com/api/v1/users/:id/change_role
 
 ### API: Client
 ```  	
-GET    http://eventool.herokuapp.com/api/v1/clients
+GET    /api/v1/clients
 ```
 *   	**Description:** Returns all clients from logged in user's production.
 *   	**Permission:** Producer, Promoter, Cashier (Production dependency).
 
 ```  	
-POST   http://eventool.herokuapp.com/api/v1/clients
+POST   /api/v1/clients
 ```
 *   	**Description:** Create a new client under logged in user's production. 
                     <br> Requires: first_name, last_name, gender. 
@@ -202,26 +190,26 @@ POST   http://eventool.herokuapp.com/api/v1/clients
 *   	**Permission:** Producer, Promoter, Cashier (Production dependency).
 
 ```  	
-GET    http://eventool.herokuapp.com/api/v1/clients/:id
+GET    /api/v1/clients/:id
 ```
 *   	**Description:** Returns a specific client.
 *   	**Permission:** Producer, Promoter, Cashier (Production dependency).
 
 ```  	
-PUT    http://eventool.herokuapp.com/api/v1/clients/:id
+PUT    /api/v1/clients/:id
 ```
 *   	**Description:** Update a client. 
                      <br>Optionals: first_name, last_name, gender, phone_number, birthdate, city.
 *   	**Permission:** Producer, Promoter (Production dependency).
 
 ```  	
-DELETE http://eventool.herokuapp.com/api/v1/clients/:id
+DELETE /api/v1/clients/:id
 ```
 *   	**Description:** Delete a client.
 *   	**Permission:** Producer, Promoter (Production dependency).
 
 ```  	
-GET    http://eventool.herokuapp.com/api/v1/clients/search
+GET    /api/v1/clients/search
 ```
 *   	**Description:** Search a client by name or phone number.
                     <br> Requires: search_param. 
@@ -235,39 +223,39 @@ GET    /api/v1/clients/:client_id/events/:id/count_friends_tickets
 
 ### API: Event
 ```  	
-GET    http://eventool.herokuapp.com/api/v1/events
+GET    /api/v1/events
 ```
 *   	**Description:** Returns all events.
 *   	**Permission:** Producer, Promoter, Cashier (Production dependency).
 
 ```  	
-POST   http://eventool.herokuapp.com/api/v1/events
+POST   /api/v1/events
 ```
 *   	**Description:** Create a new event. 
                     <br> Requires: name, when.
 *   	**Permission:** Producer (Production dependency).
 
 ```  	
-GET    http://eventool.herokuapp.com/api/v1/events/:id
+GET    /api/v1/events/:id
 ```
 *   	**Description:** Returns a specific event.
 *   	**Permission:** Producer, Promoter, Cashier (Production dependency).
 
 ```  	
-PUT    http://eventool.herokuapp.com/api/v1/events/:id
+PUT    /api/v1/events/:id
 ```
 *   	**Description:** Update an event. 
                      <br>Optionals: name, when.
 *   	**Permission:** Producer (Production dependency).
 
 ```  	
-DELETE http://eventool.herokuapp.com/api/v1/events/:id
+DELETE /api/v1/events/:id
 ```
 *   	**Description:** Delete an event.
 *   	**Permission:** Producer (Production dependency).
 
 ```  	
-GET    http://eventool.herokuapp.com/api/v1/events/:id/tickets
+GET    /api/v1/events/:id/tickets
 ```
 *   	**Description:** Returns all tickets for specific event. 
 *   	**Permission:** Producer, Promoter, Cashier (Production dependency).
@@ -280,92 +268,92 @@ GET    /api/v1/events/upcoming
 
 ### API: Client-comment
 ```  	
-GET    http://eventool.herokuapp.com/api/v1/clients/:client_id/comments
+GET    /api/v1/clients/:client_id/comments
 ```
 *   	**Description:** Returns all comments for specific client.
 *   	**Permission:** Producer, Promoter, Cashier (Production dependency).
 
 ```  	
-POST   http://eventool.herokuapp.com/api/v1/clients/:client_id/comments
+POST   /api/v1/clients/:client_id/comments
 ```
 *   	**Description:** Create new comment to a client. 
                     <br> Requires: comment.
 *   	**Permission:** Producer, Promoter, Cashier (Production dependency).
 
 ```  	
-GET    http://eventool.herokuapp.com/api/v1/clients/:client_id/comments/:id
+GET    /api/v1/clients/:client_id/comments/:id
 ```
 *   	**Description:** Returns a specific comment on specific client.
 *   	**Permission:** Producer, Promoter, Cashier (Production dependency).
 
 ```  	
-PUT    http://eventool.herokuapp.com/api/v1/clients/:client_id/comments/:id
+PUT    /api/v1/clients/:client_id/comments/:id
 ```
 *   	**Description:** Update a comment. 
                      <br>Optionals: comment.
 *   	**Permission:** Producer, Promoter, Cashier (Production dependency).
 
 ```  	
-DELETE http://eventool.herokuapp.com/api/v1/clients/:client_id/comments/:id
+DELETE /api/v1/clients/:client_id/comments/:id
 ```
 *   	**Description:** Delete a comment.
 *   	**Permission:** Producer, Promoter (Production dependency).
 
 ### API: Client-friendship
 ```  	
-GET    http://eventool.herokuapp.com/api/v1/clients/:client_id/friends
+GET    /api/v1/clients/:client_id/friends
 ```
 *   	**Description:** Return client's friends.
 *   	**Permission:** Producer, Promoter (Production dependency).
 
 ```  	
-GET    http://eventool.herokuapp.com/api/v1/clients/:client_id/friends/count
+GET    /api/v1/clients/:client_id/friends/count
 ```
 *   	**Description:** Return client's friends count.
 *   	**Permission:** Producer, Promoter, cashier (Production dependency).
 
 ```  	
-POST   http://eventool.herokuapp.com/api/v1/clients/:client_id/friends
+POST   /api/v1/clients/:client_id/friends
 ```
 *   	**Description:** Create a new frindships between two clients. 
                     <br> Requires: client_two_id.
 *   	**Permission:** Producer, Promoter (Production dependency).
 
 ```  	
-DELETE http://eventool.herokuapp.com/api/v1/clients/:client_id/friends/:id
+DELETE /api/v1/clients/:client_id/friends/:id
 ```
 *   	**Description:** Delete a friendship between two clients.
 *   	**Permission:** Producer, Promoter (Production dependency).
 
 ### API: Event-price
 ```  	
-GET    http://eventool.herokuapp.com/api/v1/events/:event_id/prices
+GET    /api/v1/events/:event_id/prices
 ```
 *   	**Description:** Returns all prices for a specific event.
 *   	**Permission:** Producer, Promoter, Cashier (Production dependency).
 
 ```  	
-POST   http://eventool.herokuapp.com/api/v1/events/:event_id/prices
+POST   /api/v1/events/:event_id/prices
 ```
 *   	**Description:** Create a new price for specific event. 
                     <br> Requires: price.
 *   	**Permission:** Producer (Production dependency).
 
 ```  	
-GET    http://eventool.herokuapp.com/api/v1/events/:event_id/prices/:id
+GET    /api/v1/events/:event_id/prices/:id
 ```
 *   	**Description:** Returns a price for an event.
 *   	**Permission:** Producer, Promoter, Cashier (Production dependency).
 
 ```  	
-PUT    http://eventool.herokuapp.com/api/v1/events/:event_id/prices/:id
+PUT    /api/v1/events/:event_id/prices/:id
 ```
 *   	**Description:** Update a price. 
                      <br>Optionals: price.
 *   	**Permission:** Producer (Production dependency).
 
 ```  	
-DELETE http://eventool.herokuapp.com/api/v1/events/:event_id/prices/:id
+DELETE /api/v1/events/:event_id/prices/:id
 ```
 *   	**Description:** Delete a price.
 *   	**Permission:** Producer (Production dependency).
